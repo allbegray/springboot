@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.hong.springboot.domains.Member;
 
 @Repository
-public interface MemberRepository extends PagingAndSortingRepository<Member, Long> {
+public interface MemberRepository extends PagingAndSortingRepository<Member, Long>, MemberRepositoryCustom {
 
 }

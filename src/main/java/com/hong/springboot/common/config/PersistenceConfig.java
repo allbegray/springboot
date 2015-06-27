@@ -1,5 +1,7 @@
 package com.hong.springboot.common.config;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +21,12 @@ public class PersistenceConfig {
 	@Bean(destroyMethod = "shutdown")
 	public EmbeddedDatabase dataSource() {
 		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
+	}
+
+	@Autowired
+	@Bean(name = "sessionFactory")
+	public SessionFactory sessionFactory(HibernateEntityManagerFactory factory) {
+		return factory.getSessionFactory();
 	}
 
 }

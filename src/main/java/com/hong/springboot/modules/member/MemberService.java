@@ -14,6 +14,11 @@ public class MemberService {
 	@Autowired
 	private MemberRepository memberRepository;
 
+	@Transactional(readOnly = true)
+	public List<Member> getListByHibernate() {
+		return memberRepository.getListByHibernate();
+	}
+
 	@Transactional
 	public Member add(Member member) {
 		return memberRepository.save(member);

@@ -32,5 +32,10 @@ public class MemberRestController {
 	public List<Member> list(Model model) {
 		return memberService.getList();
 	}
+	
+	@RequestMapping(value = "/list2", method = RequestMethod.GET)
+	public List<Member> list2(Model model) {
+		return memberService.getListByHibernate();
+	}
 
 }
