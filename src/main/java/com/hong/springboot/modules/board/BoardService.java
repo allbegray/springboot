@@ -34,7 +34,7 @@ public class BoardService {
 		if (StringUtils.hasText(boardSearchContext.getS_desc())) {
 			BooleanExpression descLike = QBoard.board.desc.like("%" + boardSearchContext.getS_desc() + "%");
 			if (predicate != null) {
-				predicate.or(descLike);
+				predicate = predicate.and(descLike);
 			} else {
 				predicate = descLike;
 			}
